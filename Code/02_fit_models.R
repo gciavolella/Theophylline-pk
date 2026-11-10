@@ -4,8 +4,8 @@
 library(nlmixr2)
 library(ggplot2)
 
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-source("models.R")
+setwd(file.path(dirname(rstudioapi::getActiveDocumentContext()$path), ".."))
+source("Code/models.R")
 
 d <- nlmixr2data::theo_sd
 ctrl <- saemControl(print = 0)
@@ -38,13 +38,15 @@ fit_final <- fit_wtV_comb
 print(fit_final)
 
 # Random effects vs weight (final model)
-dir.create("figures", showWarnings = FALSE)
-m <- merge(fit_final$eta, unique(d[, c("ID", "WT")]))
+dir.create("Figures", showWarnings = FALSE)
+m <- merge(fit_base$eta, unique(d[, c("ID", "WT")]))
 p1 <- ggplot(m, aes(x = WT, y = eta.CL)) + geom_point() +
   geom_smooth(method = "lm") + labs(x = "Weight (kg)", y = "eta.CL")
 p2 <- ggplot(m, aes(x = WT, y = eta.V)) + geom_point() +
   geom_smooth(method = "lm") + labs(x = "Weight (kg)", y = "eta.V")
-print(p1); print(p2)
+ggsave("Figures/fit_base_etaCL_WT.png", p1, width = 5, height = 4)
+ggsave("Figures/fit_base_etaV_WT.png", p2, width = 5, height = 4)
+print(cor.test(m$WT, m$eta.V)); print(cor.test(m$WT, m$eta.CL))
 
 # Save the final model for the next scripts
 saveRDS(fit_final, "results/fit_final.rds")
