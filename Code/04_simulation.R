@@ -6,10 +6,10 @@
 library(nlmixr2)
 library(ggplot2)
 
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+setwd(file.path(dirname(rstudioapi::getActiveDocumentContext()$path), ".."))
 
 fit <- readRDS("results/fit_final.rds")
-dir.create("figures", showWarnings = FALSE)
+dir.create("Figures", showWarnings = FALSE)
 set.seed(123)   # same random patients at every run
 
 # Virtual population: weights resampled from the 12 observed patients
@@ -77,4 +77,4 @@ p <- ggplot(q, aes(time, p50)) +
   labs(x = "Time (h)", y = "Concentration (mg/L)",
        caption = "Line: median; band: 5th-95th percentile; green: therapeutic window 10-20 mg/L")
 print(p)
-ggsave("figures/dosing_simulation.png", p, width = 7, height = 8)
+ggsave("Figures/dosing_simulation.png", p, width = 7, height = 8)
