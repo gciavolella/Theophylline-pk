@@ -6,7 +6,7 @@ library(ggplot2)
 
 setwd(file.path(dirname(rstudioapi::getActiveDocumentContext()$path), ".."))
 fit <- readRDS("results/fit_final.rds")
-dir.create("figures", showWarnings = FALSE)
+dir.create("Figures", showWarnings = FALSE)
 
 vpc <- vpcPlot(fit, n = 500, show = list(obs_dv = TRUE)) +
   labs(x = "Time (h)", y = "Concentration (mg/L)")
