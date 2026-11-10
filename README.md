@@ -34,7 +34,7 @@ Each individual parameter follows a log-normal distribution, $\psi_i = \psi_{pop
 
 - **Weight on V.** The random effects of V and CL tended to increase with body weight (correlation with weight 0.47 for V, p = 0.12; 0.24 for CL, p = 0.45).
   
-<p align="center"><img src="Figures/fit_base_etaCL_WT.png" width="350"></p> <p align="center"><img src="Figures/fit_base_etaV_WT.png" width="350"></p>
+<p align="center"><img src="Figures/fit_base_etaCL_WT.png" width="150"></p> <p align="center"><img src="Figures/fit_base_etaV_WT.png" width="150"></p>
 
 Weight was added on V as $V_i = V_{pop}\,(WT_i/70)^{\beta}\, e^{\eta_{V,i}}$, which is physiologically plausible since theophylline distributes in body water, which increases with body size. It was not added on CL, because the data showed no clear relationship (Pearson correlation coefficient r = 0.24, p-value p = 0.45). When estimated, the exponent was imprecise ($\beta$ = 0.58, 95% CI 0.08-1.09) but compatible with the physiological value of 1, so it was fixed to 1, which also removes one parameter. A correlation between $\eta_{CL}$ and $\eta_V$ remains and is not explained by weight, possibly because of the small number of subjects.
 - **Residual error.** The VPC of the additive-error model showed an overestimated variability at low concentrations and negative simulated concentrations. A combined error model corrects this and lowers the objective function. A purely proportional error cannot describe the non-zero pre-dose concentrations observed in some subjects.
