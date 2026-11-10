@@ -8,6 +8,7 @@
 library(nlmixr2)
 library(ggplot2)
 
+setwd(file.path(dirname(rstudioapi::getActiveDocumentContext()$path), ".."))
 dir.create("figures", showWarnings = FALSE)
 
 d <- nlmixr2data::theo_sd
@@ -17,4 +18,4 @@ p <- ggplot(subset(d, EVID == 0), aes(TIME, DV, group = ID)) +
   geom_line() + geom_point() + scale_y_log10() +
   labs(x = "Time (h)", y = "Concentration (mg/L)")
 print(p)
-ggsave("figures/data_log.png", p, width = 7, height = 5)
+ggsave("Figures/data_log.png", p, width = 7, height = 5)
