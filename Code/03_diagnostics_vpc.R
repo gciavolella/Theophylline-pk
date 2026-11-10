@@ -4,6 +4,7 @@
 library(nlmixr2)
 library(ggplot2)
 
+setwd(file.path(dirname(rstudioapi::getActiveDocumentContext()$path), ".."))
 fit <- readRDS("results/fit_final.rds")
 dir.create("figures", showWarnings = FALSE)
 
