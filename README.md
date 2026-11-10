@@ -11,7 +11,7 @@ The dataset (`theo_sd`, provided in the `nlmixr2data` package) is a classic phar
 
 <p align="center"><img src="Figures/data_log.png" width="450"></p>
 
-After the dose, concentrations rise quickly (peak within about 1-2 h), then decrease approximately linearly on a log scale (as in hte previous picture), which is consistent with a one-compartment model with first-order absorption and elimination. The visual estimate of the half-life is about 7.5 h.
+After the dose, concentrations rise quickly (peak within about 1-2 h), then decrease approximately linearly on a log scale (see the picture above), which is consistent with a one-compartment model with first-order absorption and elimination. The visual estimate of the half-life is about 7.5 h.
 
 ## Model
 
@@ -49,7 +49,7 @@ Weight was added on V as $V_i = V_{pop}\,(WT_i/70)^{\beta}\, e^{\eta_{V,i}}$, wh
 | $k_a$ (1/h) | 1.50 (1.01-2.23) | 75.9 | 49.4 |
 | $CL$ (L/h) | 2.75 (2.37-3.19) | 26.0 | 7.5 |
 | $V$ for 70 kg (L) | 32.2 (29.7-34.9) | 12.2 | 1.2 |
-| additive error (mg/L) | 0.27 (0.17-0.37) | | 19 |
+| additive error (mg/L) | 0.27 (0.17-0.37) | | 19.0 |
 | proportional error | 0.13 (0.10-0.17) | | 12.8 |
 
 The estimated half-life, $\ln 2 \cdot V / CL$, is about 8 h, consistent with the visual estimate and with literature values for adults.
@@ -93,7 +93,8 @@ These results support individualised dosing guided by drug monitoring, or sustai
 
 ## Project files
 
-- `models.R` defines the models (base, weight on V, combined error) and the function `save_fit()`, which saves criteria, parameters and diagnostic plots of a fit.
+The R scripts are in the Code/ folder. 
+- `models.R` defines the models (base, weight on V, proportional error, combined error) and the function `save_fit()`, which saves criteria, parameters and diagnostic plots of a fit.
 - `01_exploration.R` plots the data.
 - `02_fit_models.R` estimates the models, writes the comparison table in `results/model_comparison.txt` and saves the final model in `results/fit_final.rds`.
 - `03_diagnostics_vpc.R` produces the VPC of the final model.
@@ -102,7 +103,7 @@ These results support individualised dosing guided by drug monitoring, or sustai
 
 ## Run project
 
-The code was run with R version 2026.10.1+239 and nlmixr2 7.0.1. Install the packages with:
+The code was run with R version 4.6.2 and nlmixr2 7.0.1. Install the packages with:
 
 ```r
 install.packages(c("nlmixr2", "ggplot2"), dependencies = TRUE)
