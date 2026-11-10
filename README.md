@@ -9,7 +9,7 @@ Theophylline is a bronchodilator used in asthma and chronic obstructive pulmonar
 
 The dataset (`theo_sd`, provided in the `nlmixr2data` package) is a classic pharmacometrics dataset: 12 subjects received a single oral dose of theophylline (about 4-5.5 mg/kg) and plasma concentrations were measured over 24 hours. Body weight is available for each subject.
 
-<p align="center"><img src="Figures/data_log.png" width="550"></p>
+<p align="center"><img src="Figures/data_log.png" width="350"></p>
 
 After the dose, concentrations rise quickly (peak within about 1-2 h), then decrease approximately linearly on a log scale (as in hte previous picture), which is consistent with a one-compartment model with first-order absorption and elimination. The visual estimate of the half-life is about 7.5 h.
 
