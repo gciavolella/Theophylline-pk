@@ -43,7 +43,7 @@ Weight was added on V as $V_i = V_{pop}\,(WT_i/70)^{\beta}\, e^{\eta_{V,i}}$, wh
 ### Final model
 
 | Parameter | Estimate (95% CI) | Between-subject variability (CV%) | %RSE |
-|---|---|---|
+|---|---|---|---|
 | $k_a$ (1/h) | 1.50 (1.01-2.23) | 75.9 | 49.4 |
 | $CL$ (L/h) | 2.75 (2.37-3.19) | 26.0 | 7.5 |
 | $V$ for 70 kg (L) | 32.2 (29.7-34.9) | 12.2 | 1.2 |
